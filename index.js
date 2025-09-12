@@ -11,7 +11,13 @@ const dotenv = require('dotenv');
 const routes = require('@/routers/index.js');
 
 dotenv.config();
-app.use(cors());
+app.use(
+ cors({
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+ })
+);
 app.use('/api/storage', express.static(path.join(__dirname, './storage')));
 app.use(bodyParser.json());
 app.use('/api/v1', routes);
