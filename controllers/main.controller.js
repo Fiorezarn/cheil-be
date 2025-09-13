@@ -12,7 +12,9 @@ const getSubmissions = async (req, res) => {
   return successResponseData(
    res,
    'Submissions retrieved successfully',
-   submissions
+   submissions,
+
+   200
   );
  } catch (error) {
   console.log(error);
