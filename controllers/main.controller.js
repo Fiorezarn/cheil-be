@@ -13,12 +13,10 @@ const getSubmissions = async (req, res) => {
    res,
    'Submissions retrieved successfully',
    submissions,
-
    200
   );
  } catch (error) {
-  console.log(error);
-  return errorServerResponse(res, 'Server Error!');
+  return errorServerResponse(res, error.message);
  }
 };
 
@@ -33,10 +31,9 @@ const submissionForm = async (req, res) => {
    phoneNumber: phone,
    imagePath: image ? image.filename : null,
   });
-  return successResponseData(res, 'Submission Success!', data);
+  return successResponseData(res, 'Submission get successfully!', data);
  } catch (error) {
-  console.log(error);
-  return errorServerResponse(res, 'Server Error!');
+  return errorServerResponse(res, error.message);
  }
 };
 
