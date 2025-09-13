@@ -20,7 +20,7 @@ Backend API for submission management system with file upload and database integ
 - 🖼️ Image upload handling
 - 📊 Data retrieval with sorting options
 - ✅ Request validation middleware
-- 🗄️ Database migrations & seeders
+- 🗄️ Database migrations
 - 📁 Static file serving
 
 ## 🚀 Installation
@@ -102,29 +102,6 @@ npm run seed:up        # Run all seeders
 npm run seed:undo      # Undo all seeders
 ```
 
-## 📁 Project Structure
-
-```
-cheil-be/
-├── controllers/       # 🎮 API route handlers
-│   └── submissionController.js
-├── models/           # 🗃️ Sequelize database models
-│   └── submission.js
-├── routers/          # 🛣️ Express route definitions
-│   └── submissionRouter.js
-├── validations/      # ✅ Joi validation schemas
-│   └── submissionValidation.js
-├── utils/            # 🔧 Utility functions
-│   └── multerConfig.js
-├── helpers/          # 🤝 Response helpers
-│   └── responseHelper.js
-├── storage/          # 📂 Uploaded files directory
-├── migrations/       # 🗄️ Database migrations
-├── seeders/         # 🌱 Database seeders
-├── .env.example     # 📋 Environment template
-├── index.js         # 🏠 Main server entry point
-└── package.json     # 📦 Project dependencies
-```
 
 ## 🗄️ Database Schema
 
@@ -139,24 +116,6 @@ cheil-be/
 | `imagePath` | VARCHAR(255) | NULLABLE | 🖼️ Uploaded image filename |
 | `createdAt` | TIMESTAMP | DEFAULT NOW() | ⏰ Record creation time |
 | `updatedAt` | TIMESTAMP | DEFAULT NOW() | 🔄 Last update time |
-
-## ⚙️ Configuration
-
-### Environment Variables
-
-| Variable | Description | Default | Required |
-|----------|-------------|---------|----------|
-| `PORT` | Server port | 3000 | No |
-| `BASE_URL` | Base URL | localhost | No |
-| `DB_HOST` | Database host | localhost | Yes |
-| `DB_USERNAME` | Database username | root | Yes |
-| `DB_PASSWORD` | Database password | - | Yes |
-| `DB_NAME` | Database name | submission_db | Yes |
-
-### File Upload Limits
-- **Maximum file size:** 5MB
-- **Allowed formats:** JPG, JPEG, PNG
-- **Storage location:** `./storage/` directory
 
 
 **Built with ❤️ using Express.js + Sequelize**
