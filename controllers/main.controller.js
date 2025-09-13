@@ -11,12 +11,13 @@ const getSubmissions = async (req, res) => {
   });
   return successResponseData(
    res,
-   'Submissions retrieved successfully',
+   'Submissions fetched successfully',
    submissions,
+
    200
   );
  } catch (error) {
-  return errorServerResponse(res, error.message);
+  return errorServerResponse(res, error.message || 'Server Error!');
  }
 };
 
@@ -31,9 +32,9 @@ const submissionForm = async (req, res) => {
    phoneNumber: phone,
    imagePath: image ? image.filename : null,
   });
-  return successResponseData(res, 'Submission get successfully!', data);
+  return successResponseData(res, 'Submission created successfully!', data);
  } catch (error) {
-  return errorServerResponse(res, error.message);
+  return errorServerResponse(res, error.message || 'Server Error!');
  }
 };
 
